@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title> Text Editor </title>
+</head>
+<body>
+    <header>
+        <img src="css/imges/arrow.png" alt="icon-imges">
+        <span>TEXT CODE MO7MEAD WAEL</span>
+    </header>
+    <div class="editor">
+        <div>
+            <font size=4>[HTML-CODE]</font><br>
+            <textarea id="html-code"></textarea>
+        </div>
+        <div>
+            <font size=4>[CSS-CODE]</font><br>
+            <textarea id="CSS-code"></textarea>
+        </div>
+        <div>
+            <font size=4>[JS-CODE]</font><br>
+            <textarea id="JS-code"></textarea>
+        </div>
+    </div>
+    <div class="editor1">
+        <iframe id="output" frameborder="0"></iframe>
+    </div>
+    <!-- <script src="main.js"></script> -->
+     <script type="text/javascript">
+        function run(){
+                let  htmlCode = document.querySelector(".editor #html-code").value;
+                let  cssCode  = "<style>" + document.querySelector(".editor #CSS-code").value + "<style>";
+                let  jsCode   = document.querySelector(".editor #JS-code").value;
+                let  output   = document.querySelector(".editor1 #output");
+                output.contentDocument.body.innerHTML = htmlCode+cssCode;
+                output.contentWindow.eval(jsCode);  
+            }
+            document.querySelector(".editor #html-code").addEventListener("keyup", run);
+            document.querySelector(".editor #CSS-code").addEventListener("keyup", run);
+            document.querySelector(".editor #JS-code").addEventListener("keyup", run);
+     </script>
+</body>
+</html >
